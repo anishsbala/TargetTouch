@@ -18,4 +18,4 @@ The project was developed using Python, utilizing several libraries:
 4. ```bash
    python TargetTouch.py
 
-![image](https://github.com/user-attachments/assets/26bf5299-d67a-4c41-85d1-ac3e578744b9)
+![image](https://github.com/user-attachments/assets/e5a1254f-40c0-490c-8b76-97331cf6b5e7)
