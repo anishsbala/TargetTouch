@@ -96,13 +96,15 @@ def game_loop():
 
         result = hands.process(frame_rgb)
 
-        if target_visible and time.time() - start_time < levels[difficulty]["timeout"]:
-            cv2.rectangle(frame, target_pos, (target_pos[0] + target_size, target_pos[1] + target_size), (0, 255, 0), -1)
-        else:
-            target_visible = False
-            target_pos = get_random_position()
-            start_time = time.time()
-            target_visible = True
+        if target_visible:
+            if time.time() - start_time < levels[difficulty]["timeout"]:
+                cv2.rectangle(frame, target_pos, (target_pos[0] + target_size, target_pos[1] + target_size), (0, 255, 0), -1)
+            else:
+                target_visible = False
+                lives -= 1  # Lose a life if time runs out
+                target_pos = get_random_position()
+                start_time = time.time()
+                target_visible = True
 
         if result.multi_hand_landmarks:
             for hand in result.multi_hand_landmarks:
@@ -118,7 +120,7 @@ def game_loop():
                     target_pos = get_random_position()
                     target_visible = False
                     score += 1
-                    target_start_time = time.time()
+                    start_time = time.time()  # Reset start time on hit
 
         draw_state(frame)
 
