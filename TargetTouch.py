@@ -103,8 +103,8 @@ def game_loop():
                 target_visible = False
                 lives -= 1  # Lose a life if time runs out
                 target_pos = get_random_position()
-                start_time = time.time()
-                target_visible = True
+                start_time = time.time()  # Reset start time
+                target_visible = True  # Show the new target immediately
 
         if result.multi_hand_landmarks:
             for hand in result.multi_hand_landmarks:
@@ -118,7 +118,7 @@ def game_loop():
                 if (target_pos[0] - hit_range < fingertip_x < target_pos[0] + target_size + hit_range) and \
                    (target_pos[1] - hit_range < fingertip_y < target_pos[1] + target_size + hit_range):
                     target_pos = get_random_position()
-                    target_visible = False
+                    target_visible = True  # Show the target again
                     score += 1
                     start_time = time.time()  # Reset start time on hit
 
