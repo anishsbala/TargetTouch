@@ -13,8 +13,10 @@ The project was developed using Python, utilizing several libraries:
    git clone https://github.com/anishsbala/target-touch.git
    cd target-touch
 
-2. pip install -r requirements.txt
-3. python TargetTouch.py
+2. ```bash
+   pip install -r requirements.txt
+4. ```bash
+   python TargetTouch.py
 
 
 
